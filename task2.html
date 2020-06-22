@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div>
+      <input type="text" />
+      <!-- <button onclick="Add(this.parentNode)">add</button> -->
+      <input type="button" onclick="Add(this.parentNode)" value="add" />
+    </div>
+
+    <script>
+      function Add(abc) {
+        elChild = document.createElement("div");
+        inp = document.createElement("input");
+        br = document.createElement("br");
+
+        but = document.createElement("input");
+        but.setAttribute("type", "button");
+        but.setAttribute("value", "add");
+        but.setAttribute("style", "margin-left: 4px;");
+        but.setAttribute("onClick", "Add(this.parentNode)");
+
+        del = document.createElement("input");
+        del.setAttribute("type", "button");
+        del.setAttribute("value", "delete");
+        del.setAttribute("onClick", "Del(this)");
+
+        elChild.appendChild(inp);
+        elChild.appendChild(but);
+        elChild.appendChild(del);
+        elChild.appendChild(br);
+
+        var h = abc;
+        h.insertAdjacentElement("afterend", elChild);
+      }
+      function Del(abc) {
+        abc.parentNode.remove();
+      }
+    </script>
+  </body>
+</html>
